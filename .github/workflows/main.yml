@@ -1,0 +1,14 @@
+name: main
+
+on:
+  push:
+    branches: [ pile ]
+
+jobs:
+  test-pile-application:
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Prereq install
+      uses: git-pile/automation/env-setup@main
+    - name: test
+      run: git-pile --version

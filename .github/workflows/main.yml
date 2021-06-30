@@ -16,6 +16,11 @@ jobs:
       with:
         ref: ${{ github.sha }}
 
+    - name: Setup git
+      run: |
+        git config --global user.email "playground-bot@my-domain.com"
+        git config --global user.name "Playground Bot"
+
     - name: Setup pile branches
       uses: git-pile/automation/setup@main
       with:

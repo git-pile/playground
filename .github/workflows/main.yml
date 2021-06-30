@@ -8,8 +8,16 @@ jobs:
   test-pile-application:
     runs-on: ubuntu-20.04
     steps:
-    - name: Install Dependencies
-      uses: git-pile/automation/env-setup@main
+    - name: Fetch git-pile
+      uses: actions/checkout@v2
+      with:
+        repository: git-pile/git-pile
+        path: git-pile
+        ref: tip
+    - name: Install git-pile
+      run: |
+        pip3 install tqdm
+        pip3 install git-pile/
 
     - name: Checkout
       uses: actions/checkout@v2

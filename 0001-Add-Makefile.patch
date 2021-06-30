@@ -1,0 +1,17 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Lucas De Marchi <lucas.demarchi@intel.com>
+Date: Wed, 30 Jun 2021 10:47:39 -0700
+Subject: [PATCH] Add Makefile
+
+---
+ Makefile | 2 ++
+ 1 file changed, 2 insertions(+)
+ create mode 100644 Makefile
+
+diff --git a/Makefile b/Makefile
+new file mode 100644
+--- /dev/null
++++ b/Makefile
+@@ -0,0 +1,2 @@
++all:
++	@echo Hello World

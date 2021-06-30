@@ -8,7 +8,21 @@ jobs:
   test-pile-application:
     runs-on: ubuntu-20.04
     steps:
-    - name: Prereq install
+    - name: Install Dependencies
       uses: git-pile/automation/env-setup@main
+
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        ref: ${GITHUB_SHA}
+
+    - name: Setup pile branches
+      uses: git-pile/automation/setup@main
+      with:
+        pile-branch-name: pile
+        pile-branch-ref: ${GITHUB_SHA}
+        result-branch-name: internal
+        fetch-baseline: true
+
     - name: test
       run: git-pile --version

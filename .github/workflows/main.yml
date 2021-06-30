@@ -14,13 +14,13 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
       with:
-        ref: ${GITHUB_SHA}
+        ref: ${{ github.sha }}
 
     - name: Setup pile branches
       uses: git-pile/automation/setup@main
       with:
         pile-branch-name: pile
-        pile-branch-ref: ${GITHUB_SHA}
+        pile-branch-ref: ${{ github.sha }}
         result-branch-name: internal
         fetch-baseline: true
 

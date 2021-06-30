@@ -22,7 +22,7 @@ jobs:
         ref: tip
     - name: Install git-pile
       run: |
-        pip3 install tqdm
+        pip3 install wheel
         pip3 install git-pile/
 
     - name: Checkout detached pile branch

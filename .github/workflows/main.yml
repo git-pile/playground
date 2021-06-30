@@ -8,6 +8,12 @@ jobs:
   test-pile-application:
     runs-on: ubuntu-20.04
     steps:
+    - name: Setup git
+      run: |
+        git config --global user.email "playground-bot@my-domain.com"
+        git config --global user.name "Playground Bot"
+        git config --global init.defaultBranch main
+
     - name: Fetch git-pile
       uses: actions/checkout@v2
       with:
@@ -19,18 +25,12 @@ jobs:
         pip3 install tqdm
         pip3 install git-pile/
 
-    - name: Checkout
+    - name: Checkout detached pile branch
       uses: actions/checkout@v2
       with:
         ref: ${{ github.sha }}
 
-    - name: Setup git
-      run: |
-        git config --global user.email "playground-bot@my-domain.com"
-        git config --global user.name "Playground Bot"
-        git config --global init.defaultBranch main
-
-    - name: Setup pile branches
+    - name: Create branches
       uses: git-pile/automation/setup@main
       with:
         pile-branch-name: pile
@@ -38,5 +38,5 @@ jobs:
         result-branch-name: internal
         fetch-baseline: true
 
-    - name: test
-      run: git-pile --version
+    - name: Fake build
+      run: make

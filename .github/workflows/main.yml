@@ -20,6 +20,7 @@ jobs:
       run: |
         git config --global user.email "playground-bot@my-domain.com"
         git config --global user.name "Playground Bot"
+        git config --global init.defaultBranch main
 
     - name: Setup pile branches
       uses: git-pile/automation/setup@main

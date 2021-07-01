@@ -16,8 +16,6 @@ jobs:
 
     - name: Install git-pile
       uses: git-pile/automation/env-setup@main
-      with:
-        version: "0.96"
 
     - name: Checkout detached pile branch
       uses: actions/checkout@v2

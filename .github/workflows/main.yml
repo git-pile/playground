@@ -3,6 +3,8 @@ name: main
 on:
   push:
     branches: [ pile ]
+  pull_request:
+    branches: [ pile ]
 
 jobs:
   test-pile-application:

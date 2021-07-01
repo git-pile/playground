@@ -14,8 +14,17 @@ jobs:
         git config --global user.name "Playground Bot"
         git config --global init.defaultBranch main
 
+    - name: Fetch git-pile
+      uses: actions/checkout@v2
+      with:
+        repository: git-pile/git-pile
+        path: git-pile
+        ref: tip
+
     - name: Install git-pile
       uses: git-pile/automation/env-setup@main
+      with:
+        version: ./git-pile
 
     - name: Checkout detached pile branch
       uses: actions/checkout@v2

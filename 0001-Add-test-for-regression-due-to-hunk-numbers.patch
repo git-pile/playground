@@ -4,26 +4,15 @@ Date: Wed, 7 Jul 2021 17:25:58 -0700
 Subject: [PATCH] Add test for regression due to hunk numbers
 
 ---
- test-hunk-numbers-fail.txt | 49 ++++++++++++++++++++++++++++++++++++++
- 1 file changed, 49 insertions(+)
+ test-hunk-numbers-fail.txt | 38 ++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 38 insertions(+)
  create mode 100644 test-hunk-numbers-fail.txt
 
 diff --git a/test-hunk-numbers-fail.txt b/test-hunk-numbers-fail.txt
 new file mode 100644
 --- /dev/null
 +++ b/test-hunk-numbers-fail.txt
-@@ -0,0 +1,49 @@
-+Unrelated stuff.
-+Unrelated stuff.
-+Unrelated stuff.
-+Unrelated stuff.
-+Unrelated stuff.
-+Unrelated stuff.
-+Unrelated stuff.
-+Unrelated stuff.
-+Unrelated stuff.
-+Unrelated stuff.
-+
+@@ -0,0 +1,38 @@
 +block 1 {
 +	This is a paragraph that repeats itself multiple times. 1
 +	This is a paragraph that repeats itself multiple times. 2

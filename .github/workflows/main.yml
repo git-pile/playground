@@ -21,7 +21,6 @@ jobs:
       with:
         repository: git-pile/git-pile
         path: git-pile
-        ref: tip
 
     - name: Install git-pile
       uses: git-pile/automation/env-setup@main

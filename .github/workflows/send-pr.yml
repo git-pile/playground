@@ -43,6 +43,7 @@ jobs:
       with:
         repository: git-pile/git-pile
         path: git-pile
+        ref: next
 
     - name: Install git-pile
       if: steps.check.outputs.triggered == 'true'
@@ -83,16 +84,12 @@ jobs:
         result-branch-name: internal
         fetch-baseline: true
 
-    - run: git log --oneline
-
     - name: Create patches
       if: steps.check.outputs.triggered == 'true'
       run: |
         git -C patches reset --hard pile-base
-        git pile format-patch --local -o .tmp/ base...internal
-        sed -i  -e "s/\*\*\* SUBJECT HERE \*\*\*/${{ github.event.issue.title }}/" \
-                -e "s/\*\*\* BLURB HERE \*\*\*/${{ github.event.issue.body }}/"    \
-                .tmp/0000-cover-letter.patch
+        ( echo "${{ github.event.issue.title }}"; echo "${{ github.event.issue.body }}" ) | \
+                git pile format-patch --local -o .tmp/ -F - base...internal
 
     - name: send patches
       if: steps.check.outputs.triggered == 'true'

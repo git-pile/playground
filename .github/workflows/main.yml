@@ -42,3 +42,10 @@ jobs:
 
     - name: Fake build
       run: make
+
+    - name: unset extra header
+      run: git config --local --unset-all 'http.https://github.com/.extraheader'
+
+    - name: push
+      run: |
+        git push -f https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} internal

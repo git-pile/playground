@@ -6,11 +6,11 @@ on:
 
 jobs:
   main:
-    if: github.event.pull_request.merged == 'true'
     runs-on: ubuntu-20.04
     steps:
     - name: 'Thank you'
       uses: actions/github-script@0.3.0
+      if: github.event.pull_request.merged == 'true'
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         script: |
